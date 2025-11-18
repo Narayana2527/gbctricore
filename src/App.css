@@ -1,0 +1,29 @@
+.navBar{
+    padding: 10px;
+}
+.navBar li{
+    text-decoration: none;
+}
+.course-features ul {
+  list-style: none; 
+  padding-left: 1.5em; 
+}
+
+.course-features ul li {
+  color: #555; 
+  position: relative; 
+}
+
+.course-features ul li::before {
+  content: '•'; 
+  color: #ffc400; 
+  position: absolute;
+  left: -1em; 
+  top: 0;
+  font-weight: bold;
+}
+
+/* Nav Nav.item Nav.link{
+  font-size: 20px !important;
+  font-weight: 700 !important;
+} */
