@@ -12,10 +12,10 @@ const courseData = [
     duration:"3-4 months", 
     stages:"Beginner - Advanved",
     features: [
-      "MERN/MEAN Stack Mastery",
-      "Live Project Building",
-      "Portfolio Review",
-      "24/7 Mentor Support"
+      "Selenium WebDriver",
+      "TestNG Framework",
+      "Manual Testing Concepts",
+      "Test Automation Strategies"
     ]
   },
   {
@@ -23,13 +23,13 @@ const courseData = [
     title: "Azure DevOps",
     summary:"Learn end-to-end DevOps practices using Microsoft Azure cloud platform and modern CI/CD pipelines.",
     price: 12499, 
-    duration:"3-4 months", 
-    stages:"Beginner - Advanved",   
+    duration:"2-3 months", 
+    stages:"Intermediate",   
     features: [
-      "Pandas, NumPy, Scikit-learn",
-      "Machine Learning Algorithms",
-      "Data Visualization (Matplotlib)",
-      "Capstone Project"
+      "Azure Pipelines",
+      "Infrastructure as Code",
+      "Container Orchestration",
+      "Monitoring & Logging"
     ]
   },
   {
@@ -37,13 +37,13 @@ const courseData = [
     title: ".NET Development",
     summary:"Build enterprise applications using .NET framework with C# programming and modern development practices.",
     price: 18999, 
-    duration:"3-4 months", 
+    duration:"4-5 months", 
     stages:"Beginner - Advanved",   
     features: [
-      "Cert Prep: AWS Solutions Architect",
-      "Serverless Computing",
-      "Hands-on Lab Practice",
-      "DevOps Integration"
+      "C# Programming",
+      "ASP.NET Core",
+      "Entity Framework",
+      "RESTful APIs"
     ]
   },
   {
@@ -51,13 +51,13 @@ const courseData = [
     title: "TOSCA Testing",
     summary:"Become proficient in Tricentis TOSCA for model-based test automation and continuous testing.",
     price: 13500, 
-    duration:"3-4 months", 
-    stages:"Beginner - Advanved",   
+    duration:"2-3 months", 
+    stages:"Intermediate",   
     features: [
-      "Penetration Testing Basics",
-      "Network Security Protocols",
-      "Threat Analysis",
-      "Forensics and Incident Response"
+      "Model-Based Testing",
+      "Risk-Based Testing",
+      "API Testing",
+      "Mobile Testing"
     ]
   },
   {
@@ -66,12 +66,12 @@ const courseData = [
     summary:"Transform data into insights using modern analytics tools and statistical methods for business decisions.",
     price: 9999,
     duration:"3-4 months", 
-    stages:"Beginner - Advanved",    
+    stages:"Beginner - Intermediate",    
     features: [
-      "State Management with Redux Toolkit",
-      "Hooks and Functional Components",
-      "Advanced Component Patterns",
-      "Performance Optimization"
+      "Python/R Programming",
+      "SQL Databases",
+      "Data Visualization",
+      "Statistical Analysis"
     ]
   },
   {
@@ -79,13 +79,13 @@ const courseData = [
     title: "IBM Mainframes",
     summary:"Master mainframe technologies including COBOL, JCL, and DB2 for enterprise system development.",
     price: 8499,
-    duration:"3-4 months", 
-    stages:"Beginner - Advanved",    
+    duration:"4-6 months", 
+    stages:"Intermediate - Advanved",    
     features: [
-      "Figma and Sketch Tools",
-      "Design Thinking Principles",
-      "Wireframing and Prototyping",
-      "Usability Testing"
+      "COBOL Programming",
+      "JCL Scripting",
+      "DB2 Database",
+      "CICS Transaction Processing"
     ]
   }
 ];

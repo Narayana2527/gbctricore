@@ -46,7 +46,7 @@ function Navbars() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="nav-link mx-3"
+                className="nav-link mx-3 fw-semibold"
                 onClick={handleLinkClick}
               >
                 Home
@@ -60,7 +60,7 @@ function Navbars() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="nav-link mx-3"
+                className="nav-link mx-3 fw-semibold"
                 onClick={handleLinkClick}
               >
                 Courses
@@ -74,7 +74,7 @@ function Navbars() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="nav-link mx-3"
+                className="nav-link mx-3 fw-semibold"
                 onClick={handleLinkClick}
               >
                 About
@@ -88,7 +88,7 @@ function Navbars() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="nav-link mx-3"
+                className="nav-link mx-3 fw-semibold"
                 onClick={handleLinkClick}
               >
                 Contact

@@ -18,33 +18,33 @@ const Contact =()=>{
                 
                 <Row xs={1} md={2} lg={2} className="py-4 mx-auto">
                     <Col className="px-4">
-                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#a6abb6,#4886b9)"}}>
+                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
                             <Card.Title style={{color:"#ffc400",fontSize:"24px",background:"linearGradient(#1d75c1,1d75c1)"}}>
                                 <IoIosCall className="fs-3 text-white me-2 font-bold"/>Phone Numbers
                             </Card.Title>
-                            <Card.Text className="mt-3">Primary:+91 9010007319</Card.Text>
-                            <Card.Text className="mt-2">Secondary:+91 9010007329</Card.Text>
+                            <Card.Text className="mt-3 text-white">Primary:+91 9010007319</Card.Text>
+                            <Card.Text className="mt-2 text-white">Secondary:+91 9010007329</Card.Text>
                         </Card>
-                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#a6abb6,#4886b9)"}}>
+                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
                             <Card.Title style={{color:"#ffc400",fontSize:"24px"}}>
                                 <CiMail className="fs-3 text-white me-2 font-bold" />Email
                             </Card.Title>
-                            <Card.Text style={{color:"#ffc400",fontSize:"20px"}}>info@gbctricore.com</Card.Text>
-                            <Card.Text className="mt-3">Send us your queries and we'll get back to you within 24 hours</Card.Text>
+                            <Card.Text style={{color:"#ffc400",fontSize:"20px"}} className="fw-bold">info@gbctricore.com</Card.Text>
+                            <Card.Text className="mt-3 text-white">Send us your queries and we'll get back to you within 24 hours</Card.Text>
                         </Card>
-                        <Card className="px-4 py-4 mb-5 rounded-lg" style={{backgroundImage:"linear-gradient(90deg,#a6abb6,#4886b9)"}}>
+                        <Card className="px-4 py-4 mb-5 rounded-lg" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
                             <Card.Title style={{color:"#ffc400", fontSize:"24px"}}>
                                <FaClock className="fs-3 text-white me-2 font-bold" /> Business Hours
                             </Card.Title>
-                            <div className="d-flex">
+                            <div className="d-flex text-white">
                                 <div className="flex-grow-1">Monday - Friday</div>
                                 <div className="">9:00 AM to 8:30 PM</div>
                             </div>
-                            <div className="d-flex">
+                            <div className="d-flex text-white">
                                 <div className="flex-grow-1">Saturday</div>
                                 <div className="">9:00 AM to 2:00 PM</div>
                             </div>
-                            <div className="d-flex">
+                            <div className="d-flex text-white">
                                 <div className="flex-grow-1">Sunday</div>
                                 <div className="">Closed</div>
                             </div>
