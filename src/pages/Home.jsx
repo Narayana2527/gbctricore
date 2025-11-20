@@ -1,15 +1,29 @@
+// pages/Home.js (Corrected)
+import { Element } from "react-scroll";
+import GBCCarousel from "../components/gbccarousel";
+import CourseList from "../components/courseLists"; 
+import Testimonials from "../components/testimonial"; 
+import Contact from "../components/contact"; 
 
+const Home = () => (
+  <div> 
+    
+    <Element name="/">
+      <GBCCarousel />
+    </Element>
 
-const Home = () => {
- 
+    <Element name="courses">
+      <CourseList />
+    </Element>
 
-  return (
-    <div className="container-fluid my-5">
-      <div className="row">
-          
-      </div> 
-    </div>
-  );
-};
+    <Element name="about">
+      <Testimonials />
+    </Element>
+
+    <Element name="contact">
+      <Contact />
+    </Element>
+  </div>
+);
 
 export default Home;

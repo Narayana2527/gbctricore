@@ -1,13 +1,15 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
+import { Button } from "react-bootstrap";
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import { Link } from "react-router-dom";
 // Component now accepts a 'course' object as a prop
 const CourseCard = ({course}) => {
   
   return (
     <div className="container p-3">
-      <Card className="py-3 shadow-lg h-100 border border-red-500 outline-4 outline-red-500" style={{}}>
+      <Card className="py-3 shadow-lg h-100 border border-red-500 outline-4 outline-red-500 course-card" style={{}}>
         
         <Card.Body className="mb-0">
           <Card.Title className="" style={{color:"#ffc400",fontSize:"24px"}}>{course.title}</Card.Title>
@@ -29,14 +31,18 @@ const CourseCard = ({course}) => {
         <Card.Footer className="text-center border-0 " style={{ backgroundColor: "white" }}>
           
           <Button 
-             variant="none"
-            className="w-100 outline-2 border rounded-xl" 
+             variant="outline-warning"
+             as={Link}
+             key={course.id}
+             to={`/course/${course.id}`}
+            className="w-100 outline-2 border rounded-xl"
             
           >
             Learn More
           </Button>
         </Card.Footer>
       </Card>
+      
     </div>
   );
 };

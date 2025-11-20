@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-
+import { Link } from 'react-scroll';
 const BACKGROUND_IMG_PATH = "/assets/images/carousel-img.jpg";
 
 function GBCCarousel() {
@@ -41,12 +41,22 @@ function GBCCarousel() {
         <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
           <Button 
             variant="warning" 
+            as={Link}
+            to="courses"
+            smooth={true}
+            duration={500}
+            offset={-70}
             className="px-4 py-2 fw-semibold">
             Explore Us
           </Button>
 
           <Button
             variant="outline-warning"
+            as={Link}
+            to='contact'
+            smooth={true}
+            duration={500}
+            offset={-70}
             className="px-4 py-2 fw-semibold"
           >
             Contact Us

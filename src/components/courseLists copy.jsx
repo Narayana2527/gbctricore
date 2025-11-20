@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import CourseCard from './courseCard'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const courseData = [
   {
@@ -94,6 +96,31 @@ const courseData = [
 ];
 
 const CourseList = () => {  
+  
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const mobileSettings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+  };
+
+  useEffect(() => {
+    // mark mounted
+    setMounted(true);
+
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    // set initial value (only runs in browser)
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  
+  if (!mounted) return null;
   return (
     <Container className="my-5" id='courses'>
       <h2 className="text-center mb-4" style={{fontSize:"50px",fontWeight:700}}>Our Training Programs</h2>
@@ -102,8 +129,18 @@ const CourseList = () => {
             <p className='text-center pb-3 fs-4'>Industry-relevant courses designed to make you job-ready with practical, hands-on experience</p>
         </Col>
       </Row>
-            
-      <Row xs={1} md={2} lg={3} className="g-4">     
+
+      {isMobile ? (
+        <Slider {...mobileSettings}>
+          {courseData.map(course => (
+            <div key={course.id} className="p-2">
+              <CourseCard course={course} />
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        /* DESKTOP VIEW - 3 Cards Per Row */
+        <Row xs={1} md={2} lg={3} className="g-4">     
 
         {courseData.map(course => (
           <Col key={course.id} className="d-flex">            
@@ -112,7 +149,10 @@ const CourseList = () => {
             />
           </Col>
         ))}
-      </Row>
+        </Row>
+      )}
+
+      
     </Container>
   );
 };

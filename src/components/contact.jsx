@@ -52,7 +52,7 @@ const Contact =()=>{
                     </Col>                  
                     
                     <Col className="">
-                        <Card className="py-5 rounded-lg px-3" style={{background:"#ffc400",height:"600px"}} >
+                        <Card className="py-5 rounded-lg px-3" style={{background:"#ffc400",height:"610px"}} >
                             <Card.Title className="text-center text-white" style={{fontSize:"40px"}}>
                                 Ready to Transform Your Career?
                             </Card.Title>
@@ -60,18 +60,19 @@ const Contact =()=>{
                             <div className="mt-3">
                                 <Button 
                                     variant="none"
+                                    as='a'
+                                    href="https://forms.gle/DnmVqCU3FsKu4vVMA"
+                                    style={{textDecoration:"none"}}
                                     className="w-100 outline-2 bg-white border rounded-xl py-2" 
                                     
-                                >
-                                
-                                        <a className=" text-blue-600" style={{textDecoration:"none"}} href="https://forms.gle/DnmVqCU3FsKu4vVMA">Register Now
-                                    </a>
+                                >                                
+                                    Register Now
                                 </Button>
                             </div>
                             <div className="mt-3">
                                 <Button 
                                     variant="none"
-                                    className="w-100 outline-2 border rounded-xl py-2" 
+                                    className="w-100 border rounded-xl py-2" 
                                     
                                 >
                                     Email Us
