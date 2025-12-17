@@ -123,7 +123,7 @@ const CourseList = () => {
   if (!mounted) return null;
   return (
     <Container className="my-5" id='courses'>
-      <h2 className="text-center mb-4" style={{fontSize:"50px",fontWeight:700}}>Our Training Programs</h2>
+      <h2 className="text-center mb-4 display-4 display-md-3 display-lg-2" style={{fontWeight:700}}>Our Training Programs</h2>
       <Row>
         <Col lg={10} md={11} className='mx-auto'>
             <p className='text-center pb-3 fs-4'>Industry-relevant courses designed to make you job-ready with practical, hands-on experience</p>

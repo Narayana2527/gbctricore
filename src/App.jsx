@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,6 +10,9 @@ import Home from "./pages/Home";
 
 import CourseDetails from "./components/courseDetails";
 
+
+import Contact from "./components/contact";
+
 const App = () => (
   <Router>
     <Navbars />
@@ -16,7 +20,8 @@ const App = () => (
        <Route path="/" element={<Home />} />
        
       <Route path="/course/:courseId" element={<CourseDetails />} />
-      
+      {/* <Route path="/courseId" element={<CourseDetails />} />       */}
+      <Route path='/contact' element={<Contact />} />
     </Routes>
   </Router>
 );

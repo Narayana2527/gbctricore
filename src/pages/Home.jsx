@@ -4,6 +4,7 @@ import GBCCarousel from "../components/gbccarousel";
 import CourseList from "../components/courseLists"; 
 import Testimonials from "../components/testimonial"; 
 import Contact from "../components/contact"; 
+import LogoSlider from "../components/companies-portal";
 
 const Home = () => (
   <div> 
@@ -19,7 +20,9 @@ const Home = () => (
     <Element name="about">
       <Testimonials />
     </Element>
-
+    <Element name='company-logos'>
+      <LogoSlider />
+    </Element>
     <Element name="contact">
       <Contact />
     </Element>

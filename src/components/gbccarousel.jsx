@@ -27,18 +27,17 @@ function GBCCarousel() {
         <h1 className="fw-bold display-3 display-md-2 display-lg-1 mb-0">
           GBC TRICORE
         </h1>
-        <h1 className="fw-bold display-4 display-md-3 display-lg-2 text-warning mb-4">
+        <h1 className="fw-bold display-4 display-md-3 display-lg-2 text-warning mb-3">
           TECHNOLOGIES
         </h1>
 
         {/* Subtitle */}
         <p className="mx-auto mb-4" style={{ maxWidth: "760px", fontSize: "1.25rem" }}>
-          Transform your career with industry-leading IT training programs. 
-          Master cutting-edge technologies and unlock your potential.
+          Unlock new opportunities with high-impact, skill-focused IT programs designed for career transformation.
         </p>
 
         {/* Buttons */}
-        <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+        <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-3">
           <Button 
             variant="warning" 
             as={Link}
@@ -64,19 +63,38 @@ function GBCCarousel() {
         </div>
 
         {/* Stats */}
-        <Row className="text-center text-white">
-          <Col sm={4} className="mb-sm-0 mb-3">
-            <h2 className="fw-bold display-5">6+</h2>
-            <p className="m-0">Training Programs</p>
-          </Col>
-          <Col sm={4} className="mb-sm-0 mb-3">
-            <h2 className="fw-bold display-5">500+</h2>
-            <p className="m-0">Students Trained</p>
-          </Col>
-          <Col sm={4}>
-            <h2 className="fw-bold display-5">95%</h2>
-            <p className="m-0">Success Rate</p>
-          </Col>
+        <Row 
+          className="text-center text-white pt-2 border-top border-light border-opacity-25 
+                    flex-nowrap overflow-auto hide-scrollbar"
+          style={{
+            scrollbarWidth: 'none', // For Firefox
+            msOverflowStyle: 'none', // For IE/Edge
+          }}
+        >
+          {/* CSS to hide scrollbar for Chrome/Safari */}
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar { display: none; }
+          `}</style>
+
+          {[
+            { label: "Training Programs", value: "6+" },
+            { label: "Students Trained", value: "500+" },
+            { label: "Success Rate", value: "95%" }
+          ].map((stat, idx) => (
+            <Col 
+              key={idx} 
+              xs={9}    // Mobile: shows 90% of one card so the next is "peeked"
+              sm={4}    // Tablet/Desktop: returns to 3-column grid
+              className="flex-shrink-0 mb-sm-0"
+            >
+              <div className="px-2">
+                <h2 className="fw-bold display-5 mb-1 text-warning">{stat.value}</h2>
+                <p className="small text-uppercase tracking-widest opacity-75 m-0">
+                  {stat.label}
+                </p>
+              </div>
+            </Col>
+          ))}
         </Row>
       </Container>
     </div>

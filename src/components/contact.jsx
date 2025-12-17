@@ -1,89 +1,142 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import {Row, Col} from 'react-bootstrap'
-import Card from 'react-bootstrap/Card';
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { IoIosCall } from "react-icons/io";
 import { CiMail } from "react-icons/ci";
-import { FaClock } from "react-icons/fa6";
-const Contact =()=>{
-    return(
-        <div className="container-fluid py-5" id="contact" >
-            <div className="container">
-                <h1 className="text-center mb-4" style={{fontSize:"50px",fontWeight:700}}>Get In Touch</h1>
-                <Row>
-                    <Col lg={10} md={11} className='mx-auto'>
-                        <p className='text-center pb-3 fs-4'>Ready to start your tech career journey? Contact us today!</p>
-                    </Col>
-                </Row>
-                
-                <Row xs={1} md={2} lg={2} className="py-4 mx-auto">
-                    <Col className="px-4">
-                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
-                            <Card.Title style={{color:"#ffc400",fontSize:"24px",background:"linearGradient(#1d75c1,1d75c1)"}}>
-                                <IoIosCall className="fs-3 text-white me-2 font-bold"/>Phone Numbers
-                            </Card.Title>
-                            <Card.Text className="mt-3 text-white">Primary:+91 9010007319</Card.Text>
-                            <Card.Text className="mt-2 text-white">Secondary:+91 9010007329</Card.Text>
-                        </Card>
-                        <Card className="px-4 py-4 mb-5" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
-                            <Card.Title style={{color:"#ffc400",fontSize:"24px"}}>
-                                <CiMail className="fs-3 text-white me-2 font-bold" />Email
-                            </Card.Title>
-                            <Card.Text style={{color:"#ffc400",fontSize:"20px"}} className="fw-bold">info@gbctricore.com</Card.Text>
-                            <Card.Text className="mt-3 text-white">Send us your queries and we'll get back to you within 24 hours</Card.Text>
-                        </Card>
-                        <Card className="px-4 py-4 mb-5 rounded-lg" style={{backgroundImage:"linear-gradient(90deg,#909c97, #c3beb6)"}}>
-                            <Card.Title style={{color:"#ffc400", fontSize:"24px"}}>
-                               <FaClock className="fs-3 text-white me-2 font-bold" /> Business Hours
-                            </Card.Title>
-                            <div className="d-flex text-white">
-                                <div className="flex-grow-1">Monday - Friday</div>
-                                <div className="">9:00 AM to 8:30 PM</div>
-                            </div>
-                            <div className="d-flex text-white">
-                                <div className="flex-grow-1">Saturday</div>
-                                <div className="">9:00 AM to 2:00 PM</div>
-                            </div>
-                            <div className="d-flex text-white">
-                                <div className="flex-grow-1">Sunday</div>
-                                <div className="">Closed</div>
-                            </div>
-                        </Card>
-                    </Col>                  
-                    
-                    <Col className="">
-                        <Card className="py-5 rounded-lg px-3" style={{background:"#ffc400",height:"610px"}} >
-                            <Card.Title className="text-center text-white" style={{fontSize:"40px"}}>
-                                Ready to Transform Your Career?
-                            </Card.Title>
-                            <Card.Text className="py-3 text-center" style={{fontSize:"20px",color:"#fff5ec"}}>Join thousands of students who have successfully launched their tech careers with our comprehensive training programs.</Card.Text>
-                            <div className="mt-3">
-                                <Button 
-                                    variant="none"
-                                    as='a'
-                                    href="https://forms.gle/DnmVqCU3FsKu4vVMA"
-                                    style={{textDecoration:"none"}}
-                                    className="w-100 outline-2 bg-white border rounded-xl py-2" 
-                                    
-                                >                                
-                                    Register Now
-                                </Button>
-                            </div>
-                            <div className="mt-3">
-                                <Button 
-                                    variant="none"
-                                    className="w-100 border rounded-xl py-2" 
-                                    
-                                >
-                                    Email Us
-                                </Button>
-                            </div>
-                            <p className="mt-2 text-center" style={{fontSize:"16px",color:"#fff5ec"}}>Free consultation available • Flexible batch timings • Industry expert trainers</p>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>            
-        </div>
-    )
-}
+import { FaClock, FaGoogle } from "react-icons/fa6";
+
+const Contact = () => {
+  // Theme Colors
+  const ACCENT_COLOR = "#ffc400";
+  const TEXT_DARK = "#212529";
+
+  return (
+    <div className="py-5 bg-light" id="contact">
+      <Container>
+        {/* --- Header Section --- */}
+        <header className="text-center mb-5">
+          <h1 className="display-4 fw-bold mb-3">Get In Touch</h1>
+          <hr 
+            className="mx-auto border-4 opacity-100 mb-4" 
+            style={{ width: "80px", borderColor: ACCENT_COLOR }} 
+          />
+          <p className="lead text-muted mx-auto" style={{ maxWidth: "700px" }}>
+            Ready to start your tech career journey? Our team is here to support you every step of the way.
+          </p>
+        </header>
+
+        <Row className="g-4">
+          {/* --- Info Column --- */}
+          <Col lg={6}>
+            <div className="d-flex flex-column gap-4 h-100">
+              
+              {/* Phone Card */}
+              <Card className="border-0 shadow-sm p-3 h-100">
+                <Card.Body>
+                  <div className="d-flex align-items-center mb-3">
+                    <div className="p-2 rounded-circle bg-light me-3">
+                        <IoIosCall className="fs-3" style={{ color: ACCENT_COLOR }} />
+                    </div>
+                    <Card.Title className="h4 mb-0 fw-bold">Phone Numbers</Card.Title>
+                  </div>
+                  <div className="ps-5">
+                    <p className="mb-1 fw-semibold text-muted">Primary: <span className="text-dark">+91 9010007319</span></p>
+                    <p className="mb-0 fw-semibold text-muted">Secondary: <span className="text-dark">+91 9010007329</span></p>
+                  </div>
+                </Card.Body>
+              </Card>
+
+              {/* Email Card */}
+              <Card className="border-0 shadow-sm p-3 h-100">
+                <Card.Body>
+                  <div className="d-flex align-items-center mb-3">
+                    <div className="p-2 rounded-circle bg-light me-3">
+                        <CiMail className="fs-3" style={{ color: ACCENT_COLOR }} />
+                    </div>
+                    <Card.Title className="h4 mb-0 fw-bold">Email Address</Card.Title>
+                  </div>
+                  <div className="ps-5">
+                    <h5 className="fw-bold mb-2" style={{ color: "#5043e7" }}>info@gbctricore.com</h5>
+                    <p className="small text-muted mb-0">Get a response within 24 hours.</p>
+                  </div>
+                </Card.Body>
+              </Card>
+
+              {/* Hours Card */}
+              <Card className="border-0 shadow-sm p-3 h-100">
+                <Card.Body>
+                  <div className="d-flex align-items-center mb-3">
+                    <div className="p-2 rounded-circle bg-light me-3">
+                        <FaClock className="fs-3" style={{ color: ACCENT_COLOR }} />
+                    </div>
+                    <Card.Title className="h4 mb-0 fw-bold">Business Hours</Card.Title>
+                  </div>
+                  <div className="ps-5 small">
+                    <div className="d-flex justify-content-between border-bottom py-2">
+                        <span>Mon - Fri</span>
+                        <span className="fw-bold">9:00 AM - 8:30 PM</span>
+                    </div>
+                    <div className="d-flex justify-content-between border-bottom py-2">
+                        <span>Saturday</span>
+                        <span className="fw-bold">9:00 AM - 2:00 PM</span>
+                    </div>
+                    <div className="d-flex justify-content-between py-2 text-danger">
+                        <span>Sunday</span>
+                        <span className="fw-bold">Closed</span>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+
+            </div>
+          </Col>
+
+          {/* --- CTA Column --- */}
+          <Col lg={6}>
+            <Card 
+                className="h-100 border-0 shadow text-center p-4 p-md-5 d-flex flex-column justify-content-center" 
+                style={{ background: ACCENT_COLOR, borderRadius: "20px" }}
+            >
+              <Card.Body>
+                <h2 className="display-6 fw-bold mb-4" style={{ color: "#1a1a1a" }}>
+                  Ready to Transform Your Career?
+                </h2>
+                <Card.Text className="mb-5 lead fw-medium" style={{ color: "#444" }}>
+                  Join a growing community of learners who have transformed their careers through our industry-focused programs.
+                </Card.Text>
+
+                <div className="d-grid gap-3">
+                  <Button 
+                    href="https://forms.gle/DnmVqCU3FsKu4vVMA"
+                    target="_blank"
+                    className="py-3 border-0 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                    style={{ background: "#5043e7", borderRadius: "12px", color: "white" }}
+                  >
+                    Register for Free Demo
+                  </Button>
+                  
+                  <Button 
+                    variant="outline-dark"
+                    href="https://g.page/r/CWLD-WYtHKQPEAE/review"
+                    target="_blank"
+                    className="py-3 fw-bold d-flex align-items-center justify-content-center gap-2"
+                    style={{ borderRadius: "12px", borderWidth: "2px" }}
+                  >
+                    <FaGoogle /> Read Our Reviews
+                  </Button>
+                </div>
+
+                <div className="mt-5 pt-3 border-top border-dark border-opacity-10">
+                   <p className="mb-0 small fw-bold text-dark opacity-75">
+                     ✔ Free Consultation • ✔ Flexible Timing • ✔ Expert Mentors
+                   </p>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
 export default Contact;

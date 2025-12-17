@@ -1,186 +1,149 @@
 import React, { useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link as ScrollLink, scroller } from 'react-scroll';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { scroller } from 'react-scroll'; // Ensure react-scroll is installed
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 function Navbars() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleToggle = () => setExpanded(!expanded);
   const handleLinkClick = () => setExpanded(false);
 
-  const handleHomeClick = (e) => {
+  /**
+   * Unified Scroll Logic:
+   * 1. If we are on the Home page, scroll directly.
+   * 2. If we are on a different page (e.g., /course/okta), navigate home first,
+   * wait a split second for the page to load, then scroll.
+   */
+  const navigateAndScroll = (section) => {
     handleLinkClick();
-    if (location.pathname === '/') {
-      e.preventDefault();
-      scroller.scrollTo('home', {
-        smooth: true,
-        duration: 500,
-        offset: -70,
-      });
-    }
-  };
-
-  const scrollOrRoute = (section) => {
-    handleLinkClick();
-    if (location.pathname === "/") {
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Timeout allows the home page to mount before attempting to scroll
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          smooth: true,
+          duration: 500,
+          offset: -80, // Adjust based on your navbar height
+        });
+      }, 150);
+    } else {
       scroller.scrollTo(section, {
         smooth: true,
         duration: 500,
-        offset: -70
+        offset: -80,
       });
     }
   };
 
   return (
     <Navbar
-      collapseOnSelect
       expand="lg"
       sticky="top"
       expanded={expanded}
-      onToggle={handleToggle}
-      style={{ background: "#fff", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}
-      className="px-2"
+      onToggle={setExpanded}
+      className="bg-white px-2 shadow-sm"
+      style={{ zIndex: 1050 }}
     >
       <Container fluid>
-
-        {/* Left-aligned hamburger (mobile) */}
-        <Navbar.Toggle aria-controls="responsive-navbar-nav">
-          {expanded ? <FaXmark size={22} /> : <FaBars size={22} />}
+        {/* Toggle Button for Mobile */}
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="border-0 shadow-none">
+          {expanded ? <FaXmark size={24} color="#5043e7" /> : <FaBars size={24} color="#5043e7" />}
         </Navbar.Toggle>
 
-        {/* Center logo */}
-        <Navbar.Brand className="mx-auto px-0 px-lg-5 px-md-3 d-flex flex-column align-items-center">
-          <a href="/">
-            <img
-              src="/assets/images/GBC-logo.jpg"
-              width={80}
-              height={80}
-              alt="logo"
-            />
-          </a>
-          <p className="mt-1 mb-0" style={{ fontSize: "10px" }}>
-            Leading IT Training Institute
-          </p>
+        {/* Logo Section */}
+        <Navbar.Brand 
+          as={RouterLink} 
+          to="/" 
+          onClick={() => navigateAndScroll('home')}
+          className="mx-auto mx-lg-0 px-lg-3 d-flex flex-column align-items-center"
+        >
+          <img
+            src="/assets/images/GBC-logo.jpg"
+            width={85}
+            height={75}
+            alt="GBC Logo"
+            className="img-fluid"
+          />
+          <span className="d-none d-md-block text-muted" style={{ fontSize: "12px", fontWeight: "600" }}>
+            Your Trusted Partner for IT Skill Development & Placement Assistance	
+          </span>
         </Navbar.Brand>
 
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-
             {/* HOME */}
-            <Nav.Item>
-              <RouterLink
-                to="/"
-                className="nav-link fw-semibold"
-                onClick={handleHomeClick}
-              >
-                Home
-              </RouterLink>
-            </Nav.Item>
+            <Nav.Link 
+              as={RouterLink} 
+              to="/" 
+              className="px-3 fw-bold text-dark"
+              onClick={() => navigateAndScroll('home')}
+            >
+              Home
+            </Nav.Link>
 
-            <NavDropdown title="Courses" id="courses-dropdown" className="fw-semibold">
-
-              {/* All Courses Scroll or Navigate */}
-              {/* {location.pathname === "/" ? (
-                <ScrollLink
-                  to="courses"
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  className="dropdown-item"
-                  onClick={handleLinkClick}
-                >
-                  Courses
-                </ScrollLink>
-              ) : (
-                <RouterLink
-                  to="/#courses"
-                  className="dropdown-item"
-                  onClick={handleLinkClick}
-                >
-                  Courses
-                </RouterLink>
-              )} */}
-
-              {/* Custom course categories */}
-              <RouterLink
-                to="#development"
-                className="dropdown-item"
-                onClick={() => scrollOrRoute("courses")}
-              >
-                Development Courses
-              </RouterLink>
-
-              <RouterLink
-                to="#testing"
-                className="dropdown-item"
-                onClick={() => scrollOrRoute("courses")}
-              >
-                Testing Courses
-              </RouterLink>
-
-              <RouterLink
-                to="#analytics"
-                className="dropdown-item"
-                onClick={() => scrollOrRoute("courses")}
-              >
-                Data Analytics Courses
-              </RouterLink>
-
+            {/* COURSES DROPDOWN */}
+            <NavDropdown 
+              title="Courses" 
+              id="courses-dropdown" 
+              className="px-3 fw-bold"
+            >
+              <NavDropdown.Item as={RouterLink} to="/course/Tosca" onClick={handleLinkClick}>
+                TOSCA Automation
+              </NavDropdown.Item>
+              <NavDropdown.Item as={RouterLink} to="/course/selenium" onClick={handleLinkClick}>
+                Selenium with Java
+              </NavDropdown.Item>
+              <NavDropdown.Item as={RouterLink} to="/course/IBM-Mainframes" onClick={handleLinkClick}>
+                IBM Mainframes
+              </NavDropdown.Item>
+              <NavDropdown.Item as={RouterLink} to="/course/okta" onClick={handleLinkClick}>
+                Okta IAM
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => navigateAndScroll('courses')}>
+                View All Courses
+              </NavDropdown.Item>
             </NavDropdown>
 
-            {/* ABOUT */}
-            <Nav.Item>
-              <ScrollLink
-                to="about"
-                smooth={true}
-                duration={500}
-                offset={-70}
-                className="nav-link fw-semibold"
-                onClick={handleLinkClick}
-              >
-                About
-              </ScrollLink>
-            </Nav.Item>
+            {/* SCROLL LINKS */}
+            <Nav.Link className="px-3 fw-bold text-dark" onClick={() => navigateAndScroll('about')}>
+              About
+            </Nav.Link>
 
-            {/* CONTACT */}
-            <Nav.Item>
-              <ScrollLink
-                to="contact"
-                smooth={true}
-                duration={500}
-                offset={-70}
-                className="nav-link fw-semibold"
-                onClick={handleLinkClick}
-              >
-                Contact
-              </ScrollLink>
-            </Nav.Item>
+            <Nav.Link className="px-3 fw-bold text-dark" onClick={() => navigateAndScroll('contact')}>
+              Contact
+            </Nav.Link>
 
+            <Nav.Link className="px-3 fw-bold text-dark" onClick={() => navigateAndScroll('demo')}>
+              Demo
+            </Nav.Link>
           </Nav>
 
-          {/* REGISTER BUTTON */}
-          <Nav>
-            <Nav.Item className="mt-2 mt-lg-0">
-              <a
+          {/* CTA REGISTER BUTTON */}
+          <Nav className="ms-lg-2">
+            <Nav.Item className="mt-3 mt-lg-0">
+              <Button
                 href="https://forms.gle/DnmVqCU3FsKu4vVMA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav-link border rounded-3 text-white px-3"
-                style={{ background: "#5043e7" }}
-                onClick={handleLinkClick}
+                className="w-100 px-4 py-2 fw-bold shadow-sm"
+                style={{ 
+                  background: "#5043e7", 
+                  borderColor: "#5043e7",
+                  borderRadius: "8px",
+                  fontSize: '14px' 
+                }}
               >
                 Register Now
-              </a>
+              </Button>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
-
       </Container>
     </Navbar>
   );

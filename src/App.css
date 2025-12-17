@@ -45,8 +45,25 @@ body{
   
  } */
  /*  */
+ .gbccarousel{
+    height: 80vh !important;
+   }
+ /* @media (min-width: 1200px) {
+  .gbccarousel{
+    height: 100vh !important;
+   }
+} */
  /* Course banner styles */
  @media (min-width:768px) {
+  /* .online-bannerImg{
+    height: 40vh !important;
+  } */
+   /* .gbccarousel{
+    height: 40vh !important;
+   } */
+   .classesHeading{
+    font-size: 50px !important;
+   }
   .banner-course{
     height: 50vh !important;
   }
@@ -69,8 +86,8 @@ body{
    z-index: -1;
     
    background-color: #fff;
-   left: 50%;
-   top: 100px;
+   /* left: 50%;
+   top: 100px; */
    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),           
                 0 10px 10px rgba(0, 0, 0, 0.22);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -167,3 +184,12 @@ body{
   justify-content: center;
   padding: 10px 0;
 }
+
+/*online classes css*/
+.online-bannerImg{
+  height: auto;
+}
+.classesHeading{
+    font-size: 20px;
+   }
+/*  */
