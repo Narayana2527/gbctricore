@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 // Note: I have cleaned up the redundant entries in the 'course-overview' array for 'Tosca'
 const CourseDetailsData ={
     "Tosca":{
@@ -823,28 +823,41 @@ const CourseDetails = () => {
     return (
         <div className="course-details-wrapper pb-5">
             {/* ===== Banner Section ===== */}
-            <div className="position-relative w-100 mb-4 mb-lg-5">
-                {/* 1. The Image acts as the background base */}
+            <nav aria-label="breadcrumb" className="">
+                <Breadcrumb className="mx-2 my-2 custom-breadcrumb">
+                    <Breadcrumb.Item href="/" className="link-light text-decoration-none opacity-100 fw-medium" style={{textDecoration:"none", color:"#fff"}}>
+                        Home
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active className="text-black opacity-75">
+                        {formattedTitle}
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+            </nav>
+            <div className="position-relative w-100 mb-4 mb-lg-5 overflow-hidden">
                 <Image
                     src={course.banner}
                     alt={formattedTitle}
                     className="w-100"
-                    style={{ height: "40vh", minHeight: "250px", objectFit: "cover" }}
-                />                
-
-                {/* 2. Move the Header INSIDE the relative div and apply centering classes */}
-                <header 
-                    className="text-center position-absolute top-50 start-50 translate-middle w-100"
+                    style={{ height: "40vh", minHeight: "280px", objectFit: "cover" }}
+                /> 
+                <div 
+                    className="text-center position-absolute top-50 start-50 translate-middle w-100 px-3"
                     style={{ zIndex: 1 }}
                 >
-                    <h1 className="display-4 fw-bold mb-3" style={{ color: "#ffffff "}}>
-                        {formattedTitle}
-                    </h1>
-                    <hr 
-                        className="mx-auto border-4 opacity-100" 
-                        style={{ width: "80px", borderColor: ACCENT_COLOR, borderRadius: "10px" }} 
-                    />
-                </header>
+                    <header>
+                        <h1 className="display-4 fw-bold mb-2 text-white text-shadow">
+                            {formattedTitle}
+                        </h1>
+                        {/* <hr 
+                            className="mx-auto border-4 opacity-100 mb-3" 
+                            style={{ width: "80px", borderColor: ACCENT_COLOR, borderRadius: "10px" }} 
+                        /> */}
+                    </header>
+                    
+                </div>
+
+                {/* Optional: Overlay to ensure white text is always readable */}
+                <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
             </div>
             <Container>
                 {/* ===== Header Hierarchy ===== */}
@@ -932,6 +945,7 @@ const CourseDetails = () => {
                             {/* Training Outcomes */}
                             <section className="mb-4 p-4 rounded bg-light border shadow-sm">
                                 <h2 className="h4 mb-3 fw-bold">Outcomes</h2>
+                                <h3 className='h6 mb-3 font-semibold'>By the end of the course, learners will be able to:</h3>
                                 <ul className="list-unstyled mb-0">
                                     {course.courseOutcomes.map((outcome, index) => (
                                         <li key={index} className="mb-2 d-flex align-items-start small text-muted">
@@ -943,6 +957,8 @@ const CourseDetails = () => {
 
                             {/* Register CTA */}
                             <div className="text-center d-grid">
+                                {/* <p className="small text-muted mt-2 text-center">Limited seats available for the next batch!</p> */}
+                                <p className="small text-muted mt-2 text-center">For more info Register us:</p>
                                 <Button
                                     href="https://forms.gle/DnmVqCU3FsKu4vVMA"
                                     target="_blank"
@@ -953,7 +969,7 @@ const CourseDetails = () => {
                                 >
                                     Register Now
                                 </Button>
-                                <p className="small text-muted mt-2 text-center">Limited seats available for the next batch!</p>
+                                
                             </div>
 
                         </div>

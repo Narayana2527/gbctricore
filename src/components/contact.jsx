@@ -125,11 +125,11 @@ const Contact = () => {
                   </Button>
                 </div>
 
-                <div className="mt-5 pt-3 border-top border-dark border-opacity-10">
+                {/* <div className="mt-5 pt-3 border-top border-dark border-opacity-10">
                    <p className="mb-0 small fw-bold text-dark opacity-75">
                      ✔ Free Consultation • ✔ Flexible Timing • ✔ Expert Mentors
                    </p>
-                </div>
+                </div> */}
               </Card.Body>
             </Card>
           </Col>

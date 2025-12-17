@@ -63,38 +63,19 @@ function GBCCarousel() {
         </div>
 
         {/* Stats */}
-        <Row 
-          className="text-center text-white pt-2 border-top border-light border-opacity-25 
-                    flex-nowrap overflow-auto hide-scrollbar"
-          style={{
-            scrollbarWidth: 'none', // For Firefox
-            msOverflowStyle: 'none', // For IE/Edge
-          }}
-        >
-          {/* CSS to hide scrollbar for Chrome/Safari */}
-          <style>{`
-            .hide-scrollbar::-webkit-scrollbar { display: none; }
-          `}</style>
-
-          {[
-            { label: "Training Programs", value: "6+" },
-            { label: "Students Trained", value: "500+" },
-            { label: "Success Rate", value: "95%" }
-          ].map((stat, idx) => (
-            <Col 
-              key={idx} 
-              xs={9}    // Mobile: shows 90% of one card so the next is "peeked"
-              sm={4}    // Tablet/Desktop: returns to 3-column grid
-              className="flex-shrink-0 mb-sm-0"
-            >
-              <div className="px-2">
-                <h2 className="fw-bold display-5 mb-1 text-warning">{stat.value}</h2>
-                <p className="small text-uppercase tracking-widest opacity-75 m-0">
-                  {stat.label}
-                </p>
-              </div>
-            </Col>
-          ))}
+        <Row className="text-center text-white ">
+          <Col sm={4} className="mb-sm-0 mb-3">
+            <h2 className="fw-bold display-5">6+</h2>
+            <p className="m-0">Training Programs</p>
+          </Col>
+          <Col sm={4} className="mb-sm-0 mb-3">
+            <h2 className="fw-bold display-5">500+</h2>
+            <p className="m-0">Students Trained</p>
+          </Col>
+          <Col sm={4}>
+            <h2 className="fw-bold display-5">95%</h2>
+            <p className="m-0">Success Rate</p>
+          </Col>
         </Row>
       </Container>
     </div>
