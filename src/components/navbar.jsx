@@ -9,28 +9,29 @@ function Navbars() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleToggle = () => setExpanded(!expanded);
+  // const handleToggle = () => setExpanded(!expanded);
   const handleLinkClick = () => setExpanded(false);
 
-  /**
-   * Unified Scroll Logic:
-   * 1. If we are on the Home page, scroll directly.
-   * 2. If we are on a different page (e.g., /course/okta), navigate home first,
-   * wait a split second for the page to load, then scroll.
-   */
+  
   const navigateAndScroll = (section) => {
-    handleLinkClick();
-    
-    if (location.pathname !== '/') {
-      navigate('/');
-      // Timeout allows the home page to mount before attempting to scroll
-      setTimeout(() => {
+  handleLinkClick();
+  
+  if (location.pathname !== '/') {
+    navigate('/');
+    setTimeout(() => {
+      if (section === 'home') {
+        window.scrollTo(0, 0); // Force jump to top
+      } else {
         scroller.scrollTo(section, {
           smooth: true,
           duration: 500,
-          offset: -80, // Adjust based on your navbar height
+          offset: -80,
         });
-      }, 150);
+      }
+    }, 150);
+  } else {
+    if (section === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
     } else {
       scroller.scrollTo(section, {
         smooth: true,
@@ -38,7 +39,8 @@ function Navbars() {
         offset: -80,
       });
     }
-  };
+  }
+};
 
   return (
     <Navbar

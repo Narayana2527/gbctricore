@@ -12,9 +12,11 @@ import CourseDetails from "./components/courseDetails";
 
 
 import Contact from "./components/contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => (
   <Router>
+    <ScrollToTop />
     <Navbars />
     <Routes>
        <Route path="/" element={<Home />} />
