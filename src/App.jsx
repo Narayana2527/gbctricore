@@ -13,10 +13,12 @@ import CourseDetails from "./components/courseDetails";
 
 import Contact from "./components/contact";
 import ScrollToTop from "./components/ScrollToTop";
+// import CoachingModal from "./components/onLoadModal";
 
 const App = () => (
   <Router>
     <ScrollToTop />
+    {/* <CoachingModal /> */}
     <Navbars />
     <Routes>
        <Route path="/" element={<Home />} />

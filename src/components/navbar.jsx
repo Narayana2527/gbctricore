@@ -77,7 +77,7 @@ function Navbars() {
         </Navbar.Brand>
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto align-items-md-center">
             {/* HOME */}
             <Nav.Link 
               as={RouterLink} 

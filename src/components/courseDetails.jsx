@@ -856,7 +856,7 @@ const CourseDetails = () => {
                     
                 </div>
 
-                {/* Optional: Overlay to ensure white text is always readable */}
+                
                 <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
             </div>
             <Container>
